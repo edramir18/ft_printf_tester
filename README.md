@@ -52,5 +52,5 @@ a la version de **Linux**, por tanto los resultados pueden variar en caso de ver
 en un ambiente fuera de los proporcionados en la academia.
 ### Adicional
 Al realizar la comprobacion de los *flags* del bonus, en mi proyecto de **libftprintf**
-no considere el *flag* ' por lo tanto la comprobacion realizada por este programa de esa
-parte el sistema de evaluacion lo considera incompleta.
+no considere el *flag* ' por lo tanto la comprobacion realizada el programa de ese bonus,
+el sistema de evaluacion lo considera incompleta.
