@@ -17,7 +17,7 @@ diff src.txt dst.txt
 ```
 
 ## Parte Principal
-Para ejecutar la parte principal debemos ejecutar el comando **make** y ajustar la
+Para probar la parte principal debemos ejecutar el comando **make** y ajustar la
 variable *RUN* en el makefile, en caso de desear cambiar cuales parametros de
 conversion deseamos evaluar.
 ```
@@ -25,7 +25,7 @@ make
 ```
 
 ## Bonus
-Para ejecutar la parte bonus es recomendable limpiar todos los archivos compilados
+Para probar la parte bonus es recomendable limpiar todos los archivos compilados
 y luego ejecutar la regla **bonus** para trabajar con un ambiente limpio.
 
 ```
@@ -50,3 +50,7 @@ make bonus
 El comportamiento de la funcion printf en **Mac** difiere de manera significativa
 a la version de **Linux**, por tanto los resultados pueden variar en caso de verificar
 en un ambiente fuera de los proporcionados en la academia.
+### Adicional
+Al realizar la comprobacion de los *flags* del bonus, en mi proyecto de **libftprintf**
+no considere el *flag* ' por lo tanto la comprobacion realizada por este programa de esa
+parte el sistema de evaluacion lo considera incompleta.
