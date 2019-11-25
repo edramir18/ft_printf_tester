@@ -6,7 +6,7 @@
 #    By: edramire <edramire@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 23:40:46 by edramire          #+#    #+#              #
-#    Updated: 2019/11/24 10:16:17 by edramire         ###   ########.fr        #
+#    Updated: 2019/11/26 00:15:49 by edramire         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,12 @@ CREATE = create_main
 FLAGS = -Wall -Wextra -Werror
 CC = gcc $(FLAGS)
 LIBS := -I $(FTPRINT) -L $(FTPRINT) -l ftprintf
+RUN := -D U -D X -D XX -D D -D I -D S -D C -D P -D PC
 
 all: $(NAME)
 
 $(NAME):
-	gcc $(CREATE).c -o $(CREATE)
+	gcc $(CREATE).c -o $(CREATE) $(RUN)
 	./$(CREATE) > $(NAME).c
 	$(MAKE) -C $(FTPRINT)
 	cp $(NAME).c ft_$(NAME).c
@@ -31,7 +32,7 @@ $(NAME):
 	./ft_$(NAME) > dst.txt
 
 bonus:
-	gcc $(CREATE).c -o $(CREATE) -D BONUS
+	gcc $(CREATE).c -o $(CREATE) -D BONUS $(RUN)
 	./$(CREATE) > $(NAME).c
 	$(MAKE) -C $(FTPRINT) bonus
 	cp $(NAME).c ft_$(NAME).c

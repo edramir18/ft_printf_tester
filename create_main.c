@@ -6,7 +6,7 @@
 /*   By: edramire <edramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 10:41:38 by edramire          #+#    #+#             */
-/*   Updated: 2019/11/24 10:15:30 by edramire         ###   ########.fr       */
+/*   Updated: 2019/11/25 23:45:28 by edramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -363,42 +363,57 @@ int		main(void)
 	printf("int main(void)\n");
 	printf("{\n");
 #ifdef BONUS
-	printf("int i;");
-	printf("long int li;");
-	printf("long long int lli;");
-	printf("short int si;");
-	printf("signed char sci;");
+	printf("int i;\n");
+	printf("long int li;\n");
+	printf("long long int lli;\n");
+	printf("short int si;\n");
+	printf("signed char sci;\n");
 #endif
 	printf("int n;\n\n");
+#ifdef PC
 	test_pc();
+#endif
+#ifdef S
 	test_s("(void *)0");
 	test_s("\"\"");
 	test_s("\"42MADRID\"");
+#endif
+#ifdef C
 	test_c("0");
 	test_c("65");
 	test_c("200");
 	test_c("'E'");
+#endif
+#ifdef P
 	test_p("(void *)0");
 	test_p("(void *)0xe70d68e24");
 	test_p("(void *)0x7ffe70d68e24");
+#endif
+#ifdef U
 	test_u("0");
 	test_u("UCHAR_MAX");
 	test_u("USHRT_MAX");
 	test_u("UINT_MAX");
 	test_u("ULONG_MAX");
 	test_u("ULLONG_MAX");
+#endif
+#ifdef X
 	test_x("0");
 	test_x("UCHAR_MAX");
 	test_x("USHRT_MAX");
 	test_x("UINT_MAX");
 	test_x("ULONG_MAX");
 	test_x("ULLONG_MAX");
+#endif
+#ifdef XX
 	test_xx("0");
 	test_xx("UCHAR_MAX");
 	test_xx("USHRT_MAX");
 	test_xx("UINT_MAX");
 	test_xx("ULONG_MAX");
 	test_xx("ULLONG_MAX");
+#endif
+#ifdef D
 	test_d("0");
 	test_d("INT_MIN");
 	test_d("INT_MAX");
@@ -410,6 +425,8 @@ int		main(void)
 	test_d("SHRT_MAX");
 	test_d("CHAR_MIN");
 	test_d("CHAR_MAX");
+#endif
+#ifdef I
 	test_i("0");
 	test_i("INT_MIN");
 	test_i("INT_MAX");
@@ -421,6 +438,7 @@ int		main(void)
 	test_i("SHRT_MAX");
 	test_i("CHAR_MIN");
 	test_i("CHAR_MAX");
+#endif
 #ifdef BONUS
 	printf("	n = printf(\"%%020d %%n\\n\", 0, &i);\n");
 	printf("	printf(\"%%d %%d\\n\", n, i);\n");
