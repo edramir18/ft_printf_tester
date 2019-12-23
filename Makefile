@@ -25,7 +25,7 @@ $(NAME):
 	./$(CREATE) > $(NAME).c
 	$(MAKE) -C $(FTPRINT)
 	cp $(NAME).c ft_$(NAME).c
-	sed -i $(SED) 's/printf(/ft_printf(/g' ft_$(NAME).c
+	sed -i '' 's/printf(/ft_printf(/g' ft_$(NAME).c
 	$(CC) $(NAME).c -o $(NAME) $(LIBS) $(BSD)
 	$(CC) ft_$(NAME).c -o ft_$(NAME) $(LIBS) $(BSD)
 	./$(NAME) > src.txt
