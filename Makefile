@@ -6,11 +6,11 @@
 #    By: edramire <edramire@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 23:40:46 by edramire          #+#    #+#              #
-#    Updated: 2019/11/26 00:15:49 by edramire         ###   ########.fr        #
+#    Updated: 2020/01/09 13:21:22 by edramire         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FTPRINT := ../libftprintf
+FTPRINT := ../
 NAME = main
 CREATE = create_main
 FLAGS = -Wall -Wextra -Werror

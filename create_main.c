@@ -6,7 +6,7 @@
 /*   By: edramire <edramire@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 10:41:38 by edramire          #+#    #+#             */
-/*   Updated: 2019/11/25 23:45:28 by edramire         ###   ########.fr       */
+/*   Updated: 2020/01/09 13:26:09 by edramire         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #define TYPE 5
 #include <stdio.h>
 
-void	test_pc(void)
+unsigned int	test_pc(unsigned int p)
 {
 	char *f[] = { 
 		"", 
@@ -23,108 +23,108 @@ void	test_pc(void)
 		"-", 
 		"-0",
 	};
-	int n;
-	long int p = 0;
+	int n;	
 	int size = sizeof(f) / sizeof(char *);
 	char c = '%';
 	for (int k = 0; k < size; k++)
 	{
 		printf("	n = printf(\"F:|%s| |%%%s%c|\\n\");\n", f[k], f[k], c);
-		printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+		printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 		for (int x = -SIZE; x <=SIZE; x++)
 		{
 			printf("	n = printf(\"F:|%s| w:%3d |%%%s*%c|\\n\", %d);\n", f[k], x, f[k], c, x);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 		}
 	}
+	return p;
 }
 
-void	test_s(char *str)
+unsigned int	test_s(char *str, unsigned int p)
 {
 	char *f[] = { 
 		"", 
 		"-", 
 	};
 	int n;
-	long int p = 0;
 	int size = sizeof(f) / sizeof(char *);
 	char c = 's';
 	for (int k = 0; k < size; k++)
 	{
 		printf("	n = printf(\"F:|%s| |%%%s%c|\\n\", %s);\n", f[k], f[k], c, str);
-		printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+		printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 		printf("	n = printf(\"F:|%s| |%%%s.%c|\\n\", %s);\n", f[k], f[k], c, str);
-		printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+		printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 		for (int x = -SIZE; x <=SIZE; x++)
 		{
 			printf("	n = printf(\"F:|%s| w:%3d |%%%s*%c|\\n\", %d, %s);\n", f[k], x, f[k], c, x, str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			printf("	n = printf(\"F:|%s| w:%3d |%%%s*.%c|\\n\", %d, %s);\n", f[k], x, f[k], c, x, str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			printf("	n = printf(\"F:|%s| p:%3d |%%%s.*%c|\\n\", %d, %s);\n", f[k], x, f[k], c, x, str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			for (int y = -SIZE; y <=SIZE; y++)
 			{
 				printf("	n = printf(\"F:|%s| w:%3d p:%3d |%%%s*.*%c|\\n\", %d, %d, %s);\n", f[k], x, y, f[k], c, x, y, str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			}
 		}
 	}
+	return p;
 }
 
-void	test_c(char *str)
+unsigned int	test_c(char *str, unsigned int p)
 {
 	char *f[] = { 
 		"", 
 		"-", 
 	};
 	int n;
-	long int p = 0;
 	int size = sizeof(f) / sizeof(char *);
 	char c = 'c';
 	for (int k = 0; k < size; k++)
 	{
 		printf("	n = printf(\"F:|%s| |%%%s%c|\\n\", %s);\n", f[k], f[k], c, str);
-		printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+		printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 		printf("	n = printf(\"F:|%s| |%%%s.%c|\\n\", %s);\n", f[k], f[k], c, str);
-		printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+		printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 		for (int x = -SIZE; x <=SIZE; x++)
 		{
 			printf("	n = printf(\"F:|%s| w:%3d |%%%s*%c|\\n\", %d, %s);\n", f[k], x, f[k], c, x, str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			printf("	n = printf(\"F:|%s| w:%3d |%%%s*.%c|\\n\", %d, %s);\n", f[k], x, f[k], c, x, str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 		}
 	}
+	return p;
 }
 
-void	test_p(char *str)
+unsigned int	test_p(char *str, unsigned int p)
 {
 	char *f[] = { 
 		"", 
 		"-", 
 	};
 	int n;
-	long int p = 0;
 	int size = sizeof(f) / sizeof(char *);
 	char c = 'p';
 	for (int k = 0; k < size; k++)
 	{
 		printf("	n = printf(\"F:|%s| |%%%s%c|\\n\", %s);\n", f[k], f[k], c, str);
-		printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+		printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 		printf("	n = printf(\"F:|%s| |%%%s.%c|\\n\", %s);\n", f[k], f[k], c, str);
-		printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+		printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 		for (int x = -P_SIZE; x <= P_SIZE; x++)
 		{
 			printf("	n = printf(\"F:|%s| w:%3d |%%%s*%c|\\n\", %d, %s);\n", f[k], x, f[k], c, x, str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			printf("	n = printf(\"F:|%s| w:%3d |%%%s*.%c|\\n\", %d, %s);\n", f[k], x, f[k], c, x, str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 		}
 	}
+	return p;
 }
 
-void	test_x(char *str)
+unsigned int	test_x(char *str, unsigned int p)
 {
 	char *f[] = { 
 		"", 
@@ -137,7 +137,6 @@ void	test_x(char *str)
 #endif
 	};
 	int n;
-	long int p = 0;
 	int size = sizeof(f) / sizeof(char *);
 	char c = 'x';
 	char *t[5] = {"", "l", "ll", "h", "hh"};
@@ -150,27 +149,28 @@ void	test_x(char *str)
 		for (int k = 0; k < size; k++)
 		{
 			printf("	n = printf(\"F:|%s| %s|%%%s%s%c|\\n\", %s%s);\n", f[k], ct[j], f[k], t[j], c, ct[j], str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			printf("	n = printf(\"F:|%s| %s|%%%s.%s%c|\\n\", %s%s);\n", f[k], ct[j], f[k], t[j], c, ct[j], str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			for (int x = -SIZE; x <=SIZE; x++)
 			{
 				printf("	n = printf(\"F:|%s| w:%3d %s|%%%s*%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				printf("	n = printf(\"F:|%s| w:%3d %s|%%%s*.%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				printf("	n = printf(\"F:|%s| p:%3d %s|%%%s.*%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				for (int y = -SIZE; y <=SIZE; y++)
 				{
 					printf("	n = printf(\"F:|%s| w:%3d p:%3d %s|%%%s*.*%s%c|\\n\", %d, %d, %s%s);\n", f[k], x, y, ct[j], f[k], t[j], c, x, y, ct[j], str);
-					printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+					printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				}
 			}
 		}
+	return p;
 }
 
-void	test_xx(char *str)
+unsigned int	test_xx(char *str, unsigned int p)
 {
 	char *f[] = { 
 		"", 
@@ -183,7 +183,6 @@ void	test_xx(char *str)
 #endif
 	};
 	int n;
-	long int p = 0;
 	int size = sizeof(f) / sizeof(char *);
 	char c = 'X';
 	char *t[5] = {"", "l", "ll", "h", "hh"};
@@ -196,27 +195,28 @@ void	test_xx(char *str)
 		for (int k = 0; k < size; k++)
 		{
 			printf("	n = printf(\"F:|%s| %s|%%%s%s%c|\\n\", %s%s);\n", f[k], ct[j], f[k], t[j], c, ct[j], str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			printf("	n = printf(\"F:|%s| %s|%%%s.%s%c|\\n\", %s%s);\n", f[k], ct[j], f[k], t[j], c, ct[j], str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			for (int x = -SIZE; x <=SIZE; x++)
 			{
 				printf("	n = printf(\"F:|%s| w:%3d %s|%%%s*%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				printf("	n = printf(\"F:|%s| w:%3d %s|%%%s*.%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				printf("	n = printf(\"F:|%s| p:%3d %s|%%%s.*%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				for (int y = -SIZE; y <=SIZE; y++)
 				{
 					printf("	n = printf(\"F:|%s| w:%3d p:%3d %s|%%%s*.*%s%c|\\n\", %d, %d, %s%s);\n", f[k], x, y, ct[j], f[k], t[j], c, x, y, ct[j], str);
-					printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+					printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				}
 			}
 		}
+	return p;
 }
 
-void	test_u(char *str)
+unsigned int	test_u(char *str, unsigned int p)
 {
 	char *f[] = { 
 		"", 
@@ -224,7 +224,6 @@ void	test_u(char *str)
 		"0", 
 	};
 	int n;
-	long int p = 0;
 	int size = sizeof(f) / sizeof(char *);
 	char c = 'u';
 	char *t[5] = {"", "l", "ll", "h", "hh"};
@@ -237,27 +236,28 @@ void	test_u(char *str)
 		for (int k = 0; k < size; k++)
 		{
 			printf("	n = printf(\"F:|%s| %s|%%%s%s%c|\\n\", %s%s);\n", f[k], ct[j], f[k], t[j], c, ct[j], str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			printf("	n = printf(\"F:|%s| %s|%%%s.%s%c|\\n\", %s%s);\n", f[k], ct[j], f[k], t[j], c, ct[j], str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			for (int x = -SIZE; x <=SIZE; x++)
 			{
 				printf("	n = printf(\"F:|%s| w:%3d %s|%%%s*%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				printf("	n = printf(\"F:|%s| w:%3d %s|%%%s*.%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				printf("	n = printf(\"F:|%s| p:%3d %s|%%%s.*%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				for (int y = -SIZE; y <=SIZE; y++)
 				{
 					printf("	n = printf(\"F:|%s| w:%3d p:%3d %s|%%%s*.*%s%c|\\n\", %d, %d, %s%s);\n", f[k], x, y, ct[j], f[k], t[j], c, x, y, ct[j], str);
-					printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+					printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				}
 			}
 		}
+	return p;
 }
 
-void	test_d(char *str)
+unsigned int	test_d(char *str, unsigned int p)
 {
 	char *f[] = { 
 		"", 
@@ -273,7 +273,6 @@ void	test_d(char *str)
 #endif
 	};
 	int n;
-	long int p = 0;
 	int size = sizeof(f) / sizeof(char *);
 	char c = 'd';
 	char *t[5] = {"", "l", "ll", "h", "hh"};
@@ -286,27 +285,28 @@ void	test_d(char *str)
 		for (int k = 0; k < size; k++)
 		{
 			printf("	n = printf(\"F:|%s| %s|%%%s%s%c|\\n\", %s%s);\n", f[k], ct[j], f[k], t[j], c, ct[j], str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			printf("	n = printf(\"F:|%s| %s|%%%s.%s%c|\\n\", %s%s);\n", f[k], ct[j], f[k], t[j], c, ct[j], str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			for (int x = -SIZE; x <=SIZE; x++)
 			{
 				printf("	n = printf(\"F:|%s| w:%3d %s|%%%s*%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				printf("	n = printf(\"F:|%s| w:%3d %s|%%%s*.%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				printf("	n = printf(\"F:|%s| p:%3d %s|%%%s.*%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				for (int y = -SIZE; y <=SIZE; y++)
 				{
 					printf("	n = printf(\"F:|%s| w:%3d p:%3d %s|%%%s*.*%s%c|\\n\", %d, %d, %s%s);\n", f[k], x, y, ct[j], f[k], t[j], c, x, y, ct[j], str);
-					printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+					printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				}
 			}
 		}
+	return p;
 }
 
-void	test_i(char *str)
+unsigned int	test_i(char *str, unsigned int p)
 {
 	char *f[] = { 
 		"", 
@@ -322,7 +322,6 @@ void	test_i(char *str)
 #endif
 	};
 	int n;
-	long int p = 0;
 	int size = sizeof(f) / sizeof(char *);
 	char c = 'i';
 	char *t[5] = {"", "l", "ll", "h", "hh"};
@@ -335,30 +334,33 @@ void	test_i(char *str)
 		for (int k = 0; k < size; k++)
 		{
 			printf("	n = printf(\"F:|%s| %s|%%%s%s%c|\\n\", %s%s);\n", f[k], ct[j], f[k], t[j], c, ct[j], str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			printf("	n = printf(\"F:|%s| %s|%%%s.%s%c|\\n\", %s%s);\n", f[k], ct[j], f[k], t[j], c, ct[j], str);
-			printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+			printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 			for (int x = -SIZE; x <=SIZE; x++)
 			{
 				printf("	n = printf(\"F:|%s| w:%3d %s|%%%s*%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				printf("	n = printf(\"F:|%s| w:%3d %s|%%%s*.%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				printf("	n = printf(\"F:|%s| p:%3d %s|%%%s.*%s%c|\\n\", %d, %s%s);\n", f[k], x, ct[j], f[k], t[j], c, x, ct[j], str);
-				printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+				printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				for (int y = -SIZE; y <=SIZE; y++)
 				{
 					printf("	n = printf(\"F:|%s| w:%3d p:%3d %s|%%%s*.*%s%c|\\n\", %d, %d, %s%s);\n", f[k], x, y, ct[j], f[k], t[j], c, x, y, ct[j], str);
-					printf("	printf(\"%10ld->%%d\\n\", n);\n", p++);
+					printf("	printf(\"%10u->%%d\\n\", n);\n", p++);
 				}
 			}
 		}
+	return p;
 }
 
 int		main(void)
 {
+	unsigned int p = 0;
 	printf("#include <stdio.h>\n");
 	printf("#include <limits.h>\n");
+	printf("#include \"libftprintf.h\"\n");
 	printf("#include \"libft.h\"\n");
 	printf("int main(void)\n");
 	printf("{\n");
@@ -371,73 +373,73 @@ int		main(void)
 #endif
 	printf("int n;\n\n");
 #ifdef PC
-	test_pc();
+	p = test_pc(p);
 #endif
 #ifdef S
-	test_s("(void *)0");
-	test_s("\"\"");
-	test_s("\"42MADRID\"");
+	p = test_s("(void *)0", p);
+	p = test_s("\"\"", p);
+	p = test_s("\"42MADRID\"", p);
 #endif
 #ifdef C
-	test_c("0");
-	test_c("65");
-	test_c("200");
-	test_c("'E'");
+	p = test_c("0", p);
+	p = test_c("65", p);
+	p = test_c("200", p);
+	p = test_c("'E'", p);
 #endif
 #ifdef P
-	test_p("(void *)0");
-	test_p("(void *)0xe70d68e24");
-	test_p("(void *)0x7ffe70d68e24");
+	p = test_p("(void *)0", p);
+	p = test_p("(void *)0xe70d68e24", p);
+	p = test_p("(void *)0x7ffe70d68e24", p);
 #endif
 #ifdef U
-	test_u("0");
-	test_u("UCHAR_MAX");
-	test_u("USHRT_MAX");
-	test_u("UINT_MAX");
-	test_u("ULONG_MAX");
-	test_u("ULLONG_MAX");
+	p = test_u("0", p);
+	p = test_u("UCHAR_MAX", p);
+	p = test_u("USHRT_MAX", p);
+	p = test_u("UINT_MAX", p);
+	p = test_u("ULONG_MAX", p);
+	p = test_u("ULLONG_MAX", p);
 #endif
 #ifdef X
-	test_x("0");
-	test_x("UCHAR_MAX");
-	test_x("USHRT_MAX");
-	test_x("UINT_MAX");
-	test_x("ULONG_MAX");
-	test_x("ULLONG_MAX");
+	p = test_x("0", p);
+	p = test_x("UCHAR_MAX", p);
+	p = test_x("USHRT_MAX", p);
+	p = test_x("UINT_MAX", p);
+	p = test_x("ULONG_MAX", p);
+	p = test_x("ULLONG_MAX", p);
 #endif
 #ifdef XX
-	test_xx("0");
-	test_xx("UCHAR_MAX");
-	test_xx("USHRT_MAX");
-	test_xx("UINT_MAX");
-	test_xx("ULONG_MAX");
-	test_xx("ULLONG_MAX");
+	p = test_xx("0", p);
+	p = test_xx("UCHAR_MAX", p);
+	p = test_xx("USHRT_MAX", p);
+	p = test_xx("UINT_MAX", p);
+	p = test_xx("ULONG_MAX", p);
+	p = test_xx("ULLONG_MAX", p);
 #endif
 #ifdef D
-	test_d("0");
-	test_d("INT_MIN");
-	test_d("INT_MAX");
-	test_d("LONG_MIN");
-	test_d("LONG_MAX");
-	test_d("LLONG_MIN");
-	test_d("LLONG_MAX");
-	test_d("SHRT_MIN");
-	test_d("SHRT_MAX");
-	test_d("CHAR_MIN");
-	test_d("CHAR_MAX");
+	p = test_d("0", p);
+	p = test_d("INT_MIN", p);
+	p = test_d("INT_MAX", p);
+	p = test_d("LONG_MIN", p);
+	p = test_d("LONG_MAX", p);
+	p = test_d("LLONG_MIN", p);
+	p = test_d("LLONG_MAX", p);
+	p = test_d("SHRT_MIN", p);
+	p = test_d("SHRT_MAX", p);
+	p = test_d("CHAR_MIN", p);
+	p = test_d("CHAR_MAX", p);
 #endif
 #ifdef I
-	test_i("0");
-	test_i("INT_MIN");
-	test_i("INT_MAX");
-	test_i("LONG_MIN");
-	test_i("LONG_MAX");
-	test_i("LLONG_MIN");
-	test_i("LLONG_MAX");
-	test_i("SHRT_MIN");
-	test_i("SHRT_MAX");
-	test_i("CHAR_MIN");
-	test_i("CHAR_MAX");
+	p = test_i("0", p);
+	p = test_i("INT_MIN", p);
+	p = test_i("INT_MAX", p);
+	p = test_i("LONG_MIN", p);
+	p = test_i("LONG_MAX", p);
+	p = test_i("LLONG_MIN", p);
+	p = test_i("LLONG_MAX", p);
+	p = test_i("SHRT_MIN", p);
+	p = test_i("SHRT_MAX", p);
+	p = test_i("CHAR_MIN", p);
+	p = test_i("CHAR_MAX", p);
 #endif
 #ifdef BONUS
 	printf("	n = printf(\"%%020d %%n\\n\", 0, &i);\n");
