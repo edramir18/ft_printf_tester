@@ -6,7 +6,7 @@
 #    By: edramire <edramire@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/11 23:40:46 by edramire          #+#    #+#              #
-#    Updated: 2020/01/09 13:21:22 by edramire         ###   ########.fr        #
+#    Updated: 2020/08/12 23:51:30 by visv             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ bonus:
 	./$(CREATE) > $(NAME).c
 	$(MAKE) -C $(FTPRINT) bonus
 	cp $(NAME).c ft_$(NAME).c
-	sed -i $(SED) 's/printf(/ft_printf(/g' ft_$(NAME).c
+	sed -i '' 's/printf(/ft_printf(/g' ft_$(NAME).c
 	$(CC) $(NAME).c -o $(NAME) $(LIBS) $(BSD)
 	$(CC) ft_$(NAME).c -o ft_$(NAME) $(LIBS) $(BSD)
 	./$(NAME) > src.txt
